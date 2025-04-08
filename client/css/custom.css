@@ -1,0 +1,192 @@
+.table th, .table td {
+    padding: 0.2rem 0.625rem;
+}
+
+.dashboard .h6, .dashboard .h3 {
+    text-align: center !important;
+}
+
+.dashboard .h6 {
+    font-size: 15px;
+    color: #585858 !important;
+    font-weight: 600;
+}
+
+.dashboard .h3 {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.dashboard .card {
+    border-radius: 8px;
+}
+
+.dashboard .card-body {
+    padding: 10px !important;
+}
+
+.dashboard .icon {
+    padding: 5px;
+}
+
+.dashboard .icon i {
+    font-size: 16px;
+    line-height: 0;
+}
+
+.btc-price h3 {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.input-error {
+    color: red;
+    font-size: 12px;
+}
+
+.form-control {
+    border: 0.0625rem solid #c8c8c8 !important;
+    border-radius: 12px;
+}
+
+.lightgallery img {
+    border-radius: 50% !important;
+    /* border: 6px solid #cccccc;
+    height: 114px;
+    width: 41% !important; */
+}
+
+.lightgallery .description {
+    text-align: center;
+    font-size: 12px;
+    color: #707070;
+    /* margin: 3px 0 0 -29px; */
+    margin: 3px 0 0 -31%;
+}
+
+.confirm-action {
+    cursor: pointer;
+}
+
+.dropdown {
+    cursor: pointer;
+}
+
+table thead th {
+    background: #cccccc2e;
+    border-bottom: 2px solid #EEEEEE !important;
+    font-size: 14px !important;
+    font-weight: bold !important;
+}
+
+.select2-container--default .select2-selection--single {
+    height: 41px;
+    border-radius: 13px;
+}
+
+.required:after, .required-field:after {
+    content: " *";
+    color: #fb5252;
+}
+
+
+.table-amounts input {
+    height: 31px !important;
+    border-radius: 6px !important;
+}
+
+.text-bold {
+    font-weight: bold;
+}
+
+.report-header {
+    padding: 0px 3px;
+    height: auto;
+}
+
+.report-header h4 {
+    padding: 4px 0 0;
+}
+
+.report-header.header-blue {
+    background: #b1cbfb;
+    padding: 0 0 1px 4px !important;
+    /* line-height: 24px; */
+    /* width: 100%; */
+}
+
+.report-header.header-orange {
+    /* background: #b1cbfb; */
+    background: #f9c699;
+    text-transform: uppercase;
+}
+
+.report-header.header-red {
+    background: #f7e9de;
+    text-transform: uppercase;
+}
+
+/* .report-section .main-header td {
+    padding: 2px 3px;
+    height: 15px;
+} */
+
+.transaction-custom-menu {
+display: none;
+    z-index: 1000;
+    position: absolute;
+    overflow: hidden;
+    border-radius: 5px;
+    padding: 0;
+    border-radius: 3px;
+    padding: 0;
+    font-size: 11px;
+        border: 1px solid rgba(0,0,0,0.05);
+        background-color: #fff;
+    box-shadow: 0 0 8px 2px rgb(45 56 132 / 4%);
+}
+
+.transaction-custom-menu:before {
+    content: "";
+    width: 0;
+    height: 0;
+    position: absolute;
+    bottom: 100%;
+    left: 36px;
+    border-width: 0 8px 8px 8px;
+    border-style: solid;
+    border-color: #fbf0fb transparent;
+}
+
+.transaction-custom-menu li {
+    cursor: pointer;
+    list-style: none;
+    padding: 3px 10px;
+    border-bottom: 1px solid #fdedfd;
+    text-decoration: none;
+    display: block;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+
+.transaction-custom-menu li:hover {
+    background-color: #DEF;
+}
+
+
+table.dataTable tfoot th, table.dataTable tfoot td {
+    padding: 10px 17px 6px 9px !important;
+    color: #000 !important;
+    font-weight: bold !important;
+    text-transform: uppercase;
+}
+
+table.dataTable tfoot.totals th, table.dataTable tfoot.totals td,
+table.dataTable tfoot tr.totals th, table.dataTable tfoot tr.totals td {
+    background: #f9c699;
+    border-bottom: none !important;
+}
+
+.export-datatable thead th {
+    text-align: left;
+}

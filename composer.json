@@ -1,0 +1,24 @@
+{
+    "name": "ucscu-dev/ucscucbs",
+    "description": "NSIMBI CBS",
+    "autoload": {
+        "psr-4": {
+            "ucscu-dev\\ucscucbs\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "NSIMBI DEV",
+            "email": "ucscudev@gmail.com"
+        }
+    ],
+    "require": {
+        "spipu/html2pdf": "^5.2",
+        "dompdf/dompdf": "^2.0",
+        "nesbot/carbon": "^2.66",
+        "phpoffice/phpspreadsheet": "^2.1",
+        "dibi/dibi": "^4.2",
+        "doctrine/inflector": "^2.0",
+        "ramsey/uuid": "^4.7"
+    }
+}

@@ -1,0 +1,61 @@
+/todo
+/node_modules
+/vendor/
+# /backend/config/logs
+
+
+# Laravel specific
+/vendor
+/node_modules
+/public/storage
+/storage/*.key
+.env
+.env.*
+.env.backup
+.phpunit.result.cache
+
+# IDEs and editors
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# OS-generated files
+.DS_Store
+Thumbs.db
+
+# Composer
+composer.lock
+
+# npm / yarn logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Laravel telescope & horizon (if used)
+storage/telescope/*
+storage/horizon/*
+
+# Laravel config/cache
+bootstrap/cache/*.php
+storage/logs/*.log
+storage/framework/cache/*
+storage/framework/sessions/*
+storage/framework/views/*
+
+# Backup or secret config files
+config/secrets.php
+*.env.*
+*.key
+*.pem
+
+# Git files
+*.orig
+
+# Misc
+*.log
+*.bak
+*.tmp
+*.swp
+*.zip
+*.tar.gz
