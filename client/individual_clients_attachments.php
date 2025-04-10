@@ -3,7 +3,7 @@ include('../backend/config/session.php');
 require_once('./middleware/PermissionMiddleware.php');
 include_once('includes/response.php');
 require_once('includes/functions.php');
-include('../backend/models/User.php');
+// include('../backend/models/User.php');
 
 $permissions = new PermissionMiddleware();
 if (!$permissions->IsBankStuff()) {
@@ -12,13 +12,160 @@ if (!$permissions->IsBankStuff()) {
 
 $response = new Response();
 
-if (isset($_POST['submit'])){
+// if (isset($_POST['submit'])){
 
-    $uploads = uploadAttachments($_POST);
+//     // $uploads = uploadAttachments($_POST);
+//     // handleBase64OrPathUploads($_POST);
 
-    var_dump($uploads);
-    exit;
+
+//     var_dump($_FILES);
+//     exit;
+// }
+
+
+// Testing my implementation
+
+// function handleBase64OrPathUploads($post)
+// {
+//     $uid = $post['uid'];
+//     $cid = $post['cid'];
+
+//     // these fields may contain paths or base64 strings
+//     $attachments = [
+//         'sign_name' => $post['captured_image_data_2'] ?? '',
+//         'pass_name' => $post['pass_orig'] ?? '',
+//         'other_name' => $post['other_orig'] ?? '',
+//         'fing_name' => $post['captured_image_data'] ?? '',
+//     ];
+
+//     $uploadDir = __DIR__ . '/client/images/uploads/';
+//     if (!file_exists($uploadDir)) {
+//         mkdir($uploadDir, 0755, true);
+//     }
+
+//     $finalPaths = [];
+
+//     foreach ($attachments as $key => $value) {
+//         if (empty($value)) {
+//             $finalPaths[$key] = null;
+//             continue;
+//         }
+
+//         if (strpos($value, 'data:image') === 0) {
+//             // Base64-encoded image
+//             $exploded = explode(',', $value);
+//             $imgData = base64_decode(end($exploded));
+//             $ext = explode('/', mime_content_type($value))[1];
+//             $filename = uniqid($key . '_') . '.' . $ext;
+//             $filePath = $uploadDir . $filename;
+//             file_put_contents($filePath, $imgData);
+//             $finalPaths[$key] = 'uploads/' . $filename; // relative path
+//         } elseif (file_exists(__DIR__ . '/client/images/' . $value)) {
+//             // Already an image path
+//             $finalPaths[$key] = $value;
+//         } else {
+//             $finalPaths[$key] = null; // Invalid or missing
+//         }
+//     }
+
+//     global $response;
+//     $res = $response->setIndividualAttachments(
+//         $uid,
+//         $finalPaths['other_name'],
+//         $finalPaths['pass_name'],
+//         $finalPaths['sign_name'],
+//         $finalPaths['fing_name']
+//     );
+
+//     if ($res) {
+//         setSessionMessage(true, 'Attachments uploaded successfully!');
+//         header('Location: individual_clients.php');
+//     } else {
+//         setSessionMessage(false, 'Attachment update failed!');
+//         header('Location: individual_clients_attachments.php?id=' . $cid);
+//     }
+//     exit;
+// }
+
+
+
+if (isset($_POST['submit'])) {
+    // Define upload folder
+    $uploadDir = __DIR__ . '/images/uploads/';
+    $webPathPrefix = 'uploads/';
+
+    // var_dump($_FILES['photo']['error']);
+    // exit;
+
+    // Make sure upload directory exists
+    if (!file_exists($uploadDir)) {
+        // var_dump(file_exists($uploadDir));
+        // exit;
+        mkdir($uploadDir, 0755, true);
+    }
+
+    // Process uploaded files
+    $uploadedPaths = [];
+
+    $fields = [
+        'photo' => 'pass_name',
+        'sign' => 'sign_name',
+        'fingerprint' => 'fing_name',
+        'otherattach' => 'other_name',
+    ];
+
+    foreach ($fields as $inputName => $saveAs) {
+        if (
+            isset($_FILES[$inputName]) &&
+            $_FILES[$inputName]['error'] === UPLOAD_ERR_OK
+        ) {
+           
+            $originalName = basename($_FILES[$inputName]['name']);
+            $ext = pathinfo($originalName, PATHINFO_EXTENSION);
+            $newName = uniqid($inputName . '_') . '.' . $ext;
+            $targetPath = $uploadDir . $newName;
+
+            if (move_uploaded_file($_FILES[$inputName]['tmp_name'], $targetPath)) {
+                $uploadedPaths[$saveAs] = $webPathPrefix . $newName; // Save relative path
+            } else {
+                $uploadedPaths[$saveAs] = ''; // Optional fallback
+            }
+        } else {
+            $uploadedPaths[$saveAs] = ''; // Optional fallback
+        }
+    }
+
+    // var_dump($uploadedPaths);
+    //             exit;
+
+    // After upload, extract user ID data
+    $uid = $_POST['uid'] ?? '';
+    $cid = $_POST['cid'] ?? '';
+
+
+
+    // Call your update function
+    $res = $response->setIndividualAttachments(
+        $uid,
+        $uploadedPaths['other_name'],
+        $uploadedPaths['pass_name'],
+        $uploadedPaths['sign_name'],
+        $uploadedPaths['fing_name']
+    );
+
+    if ($res) {
+        setSessionMessage(true, 'Attachments Uploaded Successfully!');
+        header('Location: individual_clients.php');
+        exit;
+    } else {
+        setSessionMessage(false, 'Attachments Upload failed! Try again.');
+        header('Location: individual_clients_attachments.php?id=' . $cid);
+        exit;
+    }
 }
+
+
+// end of testing my implementation
 
 
 
@@ -28,6 +175,9 @@ if (isset($_GET['success'])) {
     $other_name = $_GET['other_name'];
     $sign_name = $_GET['sign_name'];
     $fing_name = $_GET['fing_name'];
+
+    var_dump($pass_name);
+    exit;
 
     $uid = $_GET['uid'];
     $cid = $_GET['cid'];

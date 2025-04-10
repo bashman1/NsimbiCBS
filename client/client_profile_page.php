@@ -101,7 +101,7 @@ require_once('includes/head_tag.php');
                                         <li class="breadcrumb-item active"> <a href="javascript:;" class="btn btn-primary light btn-xs mb-1 is-back-btn hide"><i class="fa fa-arrow-left"></i> Back</a> </li>
                                     </ol>
                                     <a class="rounded-circle" data-bs-toggle="modal" data-bs-target=".bd-example-modal-lg3">
-                                        <img class="rounded-circle" src="https://eaoug.org/<?php echo $member['profilePhoto']; ?>" alt="" width="80" height="80" onerror="this.onerror=null; this.src='images/account.png'" />
+                                        <img class="rounded-circle" src="./images/<?php echo $member['profilePhoto']; ?>" alt="" width="80" height="80" onerror="this.onerror=null; this.src='images/account.png'" />
                                     </a>
                                 </div>
 
@@ -131,22 +131,22 @@ require_once('includes/head_tag.php');
 
                                 <div class="col  ps-0 pt-3">
                                     <div id="lightgallery" class="row lightgallery">
-                                        <a href="https://eaoug.org/<?php echo $member['profilePhoto']; ?>" data-exthumbimage="https://eaoug.org/<?php echo $member['profilePhoto']; ?>" data-src="https://eaoug.org/<?php echo $member['profilePhoto']; ?>" class="col-md-4 mb-4">
+                                        <a href="./images/<?php echo $member['profilePhoto']; ?>" data-exthumbimage="./images/<?php echo $member['profilePhoto']; ?>" data-src="./images/<?php echo $member['profilePhoto']; ?>" class="col-md-4 mb-4">
 
 
-                                            <img class="rounded-circle" src="https://eaoug.org/<?php echo $member['profilePhoto']; ?>" alt="" width="80" height="80" onerror="this.onerror=null; this.src='images/account.png'" />
+                                            <img class="rounded-circle" src="./images/<?php echo $member['profilePhoto']; ?>" alt="" width="80" height="80" onerror="this.onerror=null; this.src='images/account.png'" />
                                             <!-- <div class="description">Identification</div> -->
                                         </a>
 
-                                        <a href="https://eaoug.org/<?php echo $member['sign']; ?>" data-exthumbimage="https://eaoug.org/<?php echo $member['sign']; ?>" data-src="https://eaoug.org/<?php echo $member['sign']; ?>" class="col-md-4 mb-4">
+                                        <a href="./images/<?php echo $member['sign']; ?>" data-exthumbimage="./images/<?php echo $member['sign']; ?>" data-src="./images/<?php echo $member['sign']; ?>" class="col-md-4 mb-4">
 
-                                            <img class="rounded-circle" src="https://eaoug.org/<?php echo $member['sign']; ?>" alt="" width="80" height="80" onerror="this.onerror=null; this.src='images/account.png'" />
+                                            <img class="rounded-circle" src="./images/<?php echo $member['sign']; ?>" alt="" width="80" height="80" onerror="this.onerror=null; this.src='images/account.png'" />
                                             <!-- <div class="description">Signature</div> -->
                                         </a>
 
-                                        <a href="https://eaoug.org/<?php echo $member['other_attachments']; ?>" data-exthumbimage="https://eaoug.org/<?php echo $member['other_attachments']; ?>" data-src="https://eaoug.org/<?php echo $member['other_attachments']; ?>" class="col-md-4 mb-4">
+                                        <a href="./images/<?php echo $member['other_attachments']; ?>" data-exthumbimage="./images/<?php echo $member['other_attachments']; ?>" data-src="./images/<?php echo $member['other_attachments']; ?>" class="col-md-4 mb-4">
 
-                                            <img class="rounded-circle" src="https://eaoug.org/<?php echo $member['other_attachments']; ?>" alt="" width="80" height="80" onerror="this.onerror=null; this.src='images/account.png'" />
+                                            <img class="rounded-circle" src="./images/<?php echo $member['other_attachments']; ?>" alt="" width="80" height="80" onerror="this.onerror=null; this.src='images/account.png'" />
                                             <!-- <div class="description">Other attachments</div> -->
                                         </a>
                                     </div>
@@ -1708,9 +1708,9 @@ require_once('includes/head_tag.php');
                             <input type="hidden" name="client_id" value="<?= @$client_id; ?>">
                             <input type="hidden" name="original" value="<?= $member['fingerprint'] ?>">
 
-                            <a target="_blank" href="https://eaoug.org/<?php echo $member['fingerprint']; ?>" data-exthumbimage="https://eaoug.org/<?php echo $member['fingerprint']; ?>" data-src="https://eaoug.org/<?php echo $member['sign']; ?>" class="col-md-4 mb-4">
+                            <a target="_blank" href="./images/<?php echo $member['fingerprint']; ?>" data-exthumbimage="./images/<?php echo $member['fingerprint']; ?>" data-src="./images/<?php echo $member['sign']; ?>" class="col-md-4 mb-4">
 
-                                <img class="rounded-circle" src="https://eaoug.org/<?php echo $member['fingerprint']; ?>" alt="" width="80" height="80" onerror="this.onerror=null; this.src='images/account.png'" />
+                                <img class="rounded-circle" src="./images/<?php echo $member['fingerprint']; ?>" alt="" width="80" height="80" onerror="this.onerror=null; this.src='images/account.png'" />
                             </a>
                             <!-- <div class="col-md-12">
                                     Fill & submit the form below to update Customer's Biometrics.
