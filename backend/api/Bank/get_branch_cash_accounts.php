@@ -15,12 +15,16 @@ $item = new Bank($db);
 if ($_GET['branch'] == '') {
     $item->id = $_GET['bank'];
     $stmt = $item->getAllBankStaffCashAccounts();
+
 } else {
     $item->id = $_GET['branch'];
+
     $stmt = $item->getAllBranchStaffCashAccounts();
 }
 
 $itemCount = $stmt->rowCount();
+
+
 
 if ($itemCount > 0) {
 

@@ -15,15 +15,17 @@ $response = new Response();
 $branches = $response->getBankStaff($user[0]['bankId'], $user[0]['branchId']);
 
 if (isset($_POST['submit'])) {
-    // $res = $response->addCashAccount($_POST['bname'], $_POST['branch']);
+    // var_dump($_POST);
+    // exit;
+    $res = $response->addCashAccount($_POST['bname'], $_POST['branch'], new DateTime((new DateTime())->format('Y-m-d H:i:s')));
     $res =true;
     if ($res) {
         setSessionMessage(true, 'Cash Account Created Successfully!');
-        header('location:manage_cash_accounts');
+        header('location:manage_cash_accounts.php');
         exit;
     } else {
         setSessionMessage(false, 'Cash Account not Created');
-        header('location:manage_cash_accounts');
+        header('location:manage_cash_accounts.php');
         exit;
     }
 

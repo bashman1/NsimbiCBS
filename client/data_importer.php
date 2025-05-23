@@ -16,7 +16,7 @@ if (isset($_POST['clients_data'])) {
     $res = $responser->dataImporterClients($data);
 
     // var_dump($data);
-    var_dump($res);
+    // var_dump($res);
     exit;
     if ($res) {
         setSessionMessage();

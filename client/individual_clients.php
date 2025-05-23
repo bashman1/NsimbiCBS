@@ -224,7 +224,7 @@ require_once('includes/head_tag.php');
                     <div class="card-body">
                         <div class="table-responsive">
 
-                            <table id="clients_datatable" class="table table-striped fixed-layout" style="min-width: 845px;">
+                            <table id="clients_datatable" class="table table-striped fixed-layout table-bordered table-sm " style="min-width: 845px;">
 
                                 <thead>
                                     <tr>

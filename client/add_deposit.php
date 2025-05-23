@@ -39,6 +39,7 @@ if (isset($_GET['t'])) {
 $cash_accounts = $response->getAllBranchCashAccounts($user[0]['bankId'], $user[0]['branchId']);
 $bank_accounts = $response->getAllBankAccounts($user[0]['bankId'], $user[0]['branchId']);
 
+
 ?>
 
 
@@ -184,6 +185,8 @@ $bank_accounts = $response->getAllBankAccounts($user[0]['bankId'], $user[0]['bra
                                                     <?php
                                                     if ($_SESSION['user']['bankId']) {
                                                         foreach ($cash_accounts as $cash_account) {
+
+                                                            
                                                     ?>
                                                             <option value="<?= $cash_account['cid'] ?>">
                                                                 <?= $cash_account['acname'] ?> Balance: <?= number_format($cash_account['balance']) ?>
@@ -191,6 +194,8 @@ $bank_accounts = $response->getAllBankAccounts($user[0]['bankId'], $user[0]['bra
                                                     <?php }
                                                     } else {
                                                         foreach ($cash_accounts as $c_acc) {
+                                                            // var_dump($c_acc);
+                                                            // exit;
                                                             if ($c_acc['userid'] == $user[0]['userId']) {
                                                                 echo '<option value="' . $c_acc['cid'] . '"> ' . $c_acc['acname'] . ' Balance: ' . number_format($c_acc['balance']) . '</option>';
                                                             }

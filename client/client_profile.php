@@ -341,83 +341,73 @@ require_once('includes/head_tag.php');
                         <div class="card">
                             <div class="card-body">
                                 <div class="row">
-                                    <div class="col-md-10 p-0 m-0">
-                                        <p class="fw-bold p-0 m-0">Santander</p>
+                                    <div class="col-sm-8 p-0 m-0">
+                                        <p class="fw-bold p-0 m-0">Savings</p>
                                         <p>895***55688</p>
 
                                         <p class="fw-bold p-0 m-0 fs-3">12,220.58</p>
                                     </div>
-                                    <div class="col-md-2 p-0 m-0">
-                                        <!-- <p class="fs-3 text-secondary"><i class="fas fa-sort-amount-up"></i></p> -->
-                                        <!-- <div id="chart"></div> -->
-                                        <!-- <p class="fs-3"><i class="fas fa-ellipsis-v"></i></p> -->
+                                    <div class="col-sm-4 p-0 m-0">
+                                        <div  id="chart"></div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-
                     <!-- ************************ -->
                     <div class="col-md-3">
                         <div class="card">
                             <div class="card-body">
                                 <div class="row">
-                                    <div class="col-md-10 p-0 m-0">
-                                        <p class="fw-bold p-0 m-0">Santander</p>
+                                    <div class="col-sm-8 p-0 m-0">
+                                        <p class="fw-bold p-0 m-0">Shares</p>
                                         <p>895***55688</p>
 
                                         <p class="fw-bold p-0 m-0 fs-3">12,220.58</p>
                                     </div>
-                                    <div class="col-md-2 p-0 m-0">
-                                        <p class="fs-3 text-danger"><i class="fas fa-sort-amount-down-alt"></i></p>
-                                        <!-- <i class="fas fa-sort-amount-down-alt"></i> -->
-                                        <p class="fs-3"><i class="fas fa-ellipsis-v"></i></p>
+                                    <div class="col-sm-4 p-0 m-0">
+                                        <div  id="chart1"></div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-
                     <!-- ************************ -->
                     <div class="col-md-3">
                         <div class="card">
                             <div class="card-body">
                                 <div class="row">
-                                    <div class="col-md-10 p-0 m-0">
-                                        <p class="fw-bold p-0 m-0">Santander</p>
-                                        <p>895***55688</p>
+                                    <div class="col-sm-8 p-0 m-0">
+                                        <p class="fw-bold p-0 m-0">Savings Product</p>
+                                        <!-- <p>895***55688</p> -->
 
                                         <p class="fw-bold p-0 m-0 fs-3">12,220.58</p>
                                     </div>
-                                    <div class="col-md-2 p-0 m-0">
-                                        <p class="fs-3"><i class="fas fa-fire"></i></p>
-                                        <p class="fs-3"><i class="fas fa-ellipsis-v"></i></p>
+                                    <div class="col-sm-4 p-0 m-0">
+                                        <div  id="chart2"></div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-
                     <!-- ************************ -->
                     <div class="col-md-3">
                         <div class="card">
                             <div class="card-body">
                                 <div class="row">
-                                    <div class="col-md-10 p-0 m-0">
-                                        <p class="fw-bold p-0 m-0">Santander</p>
-                                        <p>895***55688</p>
+                                    <div class="col-sm-8 p-0 m-0">
+                                        <p class="fw-bold p-0 m-0">Shares Product</p>
+                                        <!-- <p>895***55688</p> -->
 
                                         <p class="fw-bold p-0 m-0 fs-3">12,220.58</p>
                                     </div>
-                                    <div class="col-md-2 p-0 m-0">
-                                        <p class="fs-3"><i class="fas fa-fire"></i></p>
-                                        <p class="fs-3"><i class="fas fa-ellipsis-v"></i></p>
+                                    <div class="col-sm-4 p-0 m-0">
+                                        <div  id="chart3"></div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-
                     <!-- ************************ -->
                     <div class="col-md-12">
                         <div class="card">
@@ -425,7 +415,7 @@ require_once('includes/head_tag.php');
                                 <div class="row">
                                     <div class="col-md-12">
                                         <p class="fw-bold">Latest Transaction</p>
-                                        <table class="table">
+                                        <table class="table table-striped table-bordered table-sm">
                                             <tr>
                                                 <th>Date</th>
                                                 <th>Description</th>
@@ -2298,7 +2288,7 @@ require_once('includes/head_tag.php');
     </script>
 
     <!-- Testing graph -->
-    <script>
+    <!-- <script>
         var options = {
             series: [44, 55, 13, 33],
             chart: {
@@ -2367,7 +2357,287 @@ require_once('includes/head_tag.php');
         document.querySelector("#reset").addEventListener("click", function() {
             chart.updateSeries(reset())
         })
-    </script>
+    </script> -->
+
+
+    <!-- <script>
+        var options = {
+          series: [{
+            name: "Desktops",
+            data: [3, 3.1, 3.2]
+        }],
+          chart: {
+          height: 350,
+          type: 'line',
+          zoom: {
+            enabled: false
+          }
+        },
+        dataLabels: {
+          enabled: false
+        },
+        stroke: {
+          curve: 'straight'
+        },
+        title: {
+          text: 'Product Trends by Month',
+          align: 'left'
+        },
+        grid: {
+          row: {
+            colors: ['#f3f3f3', 'transparent'], // takes an array which will be repeated on columns
+            opacity: 0.5
+          },
+        },
+        xaxis: {
+        //   categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep'],
+        }
+        };
+
+        var chart = new ApexCharts(document.querySelector("#chart"), options);
+        chart.render();
+    </script> -->
+
+    <!-- graph for rise -->
+    <script>
+  var options = {
+    series: [{
+    //   name: "Desktops",
+      data: [3, 5, 3.2]
+    }],
+    chart: {
+      height: 100,
+      width: 100,
+      type: 'line',
+      zoom: {
+        enabled: false
+      },
+      toolbar: {
+        show: false // This removes the menu
+      },
+    },
+    colors: ['#28a745'], // Bootstrap success green
+    // colors: ['#FF5733'],
+    dataLabels: {
+      enabled: false
+    },
+    stroke: {
+      curve: 'smooth' // or 'straight' or 'stepline'
+    },
+    title: {
+      text: '',
+    },
+    grid: {
+      show: false
+    },
+    xaxis: {
+      labels: {
+        show: false
+      },
+      axisTicks: {
+        show: false
+      },
+      axisBorder: {
+        show: false
+      }
+    },
+    yaxis: {
+      labels: {
+        show: false
+      }
+    },
+    legend: {
+      show: false
+    },
+    tooltip: {
+      enabled: false
+    }
+  };
+
+  var chart = new ApexCharts(document.querySelector("#chart"), options);
+  chart.render();
+</script>
+
+<script>
+  var options = {
+    series: [{
+    //   name: "Desktops",
+      data: [3, 5, 3.2]
+    }],
+    chart: {
+      height: 100,
+      width: 100,
+      type: 'line',
+      zoom: {
+        enabled: false
+      },
+      toolbar: {
+        show: false // This removes the menu
+      },
+    },
+    colors: ['#28a745'], // Bootstrap success green
+    // colors: ['#FF5733'],
+    dataLabels: {
+      enabled: false
+    },
+    stroke: {
+      curve: 'smooth' // or 'straight' or 'stepline'
+    },
+    title: {
+      text: '',
+    },
+    grid: {
+      show: false
+    },
+    xaxis: {
+      labels: {
+        show: false
+      },
+      axisTicks: {
+        show: false
+      },
+      axisBorder: {
+        show: false
+      }
+    },
+    yaxis: {
+      labels: {
+        show: false
+      }
+    },
+    legend: {
+      show: false
+    },
+    tooltip: {
+      enabled: false
+    }
+  };
+
+  var chart = new ApexCharts(document.querySelector("#chart2"), options);
+  chart.render();
+</script>
+<!-- end rise graph -->
+
+<!-- drop graph -->
+<script>
+  var options = {
+    series: [{
+    //   name: "Desktops",
+      data: [6, 4, 3, 5]
+    }],
+    chart: {
+      height: 100,
+      width: 100,
+      type: 'line',
+      zoom: {
+        enabled: false
+      },
+      toolbar: {
+        show: false // This removes the menu
+      },
+    },
+    // colors: ['#28a745'], // Bootstrap success green
+    colors: ['#FF5733'],
+    dataLabels: {
+      enabled: false
+    },
+    stroke: {
+      curve: 'smooth' // or 'straight' or 'stepline'
+    },
+    title: {
+      text: '',
+    },
+    grid: {
+      show: false
+    },
+    xaxis: {
+      labels: {
+        show: false
+      },
+      axisTicks: {
+        show: false
+      },
+      axisBorder: {
+        show: false
+      }
+    },
+    yaxis: {
+      labels: {
+        show: false
+      }
+    },
+    legend: {
+      show: false
+    },
+    tooltip: {
+      enabled: false
+    }
+  };
+
+  var chart = new ApexCharts(document.querySelector("#chart1"), options);
+  chart.render();
+</script>
+
+<script>
+  var options = {
+    series: [{
+    //   name: "Desktops",
+      data: [10, 2, 8]
+    }],
+    chart: {
+      height: 100,
+      width: 100,
+      type: 'line',
+      zoom: {
+        enabled: false
+      },
+      toolbar: {
+        show: false // This removes the menu
+      },
+    },
+    // colors: ['#28a745'], // Bootstrap success green
+    colors: ['#FF5733'],
+    dataLabels: {
+      enabled: false
+    },
+    stroke: {
+      curve: 'smooth' // or 'straight' or 'stepline'
+    },
+    title: {
+      text: '',
+    },
+    grid: {
+      show: false
+    },
+    xaxis: {
+      labels: {
+        show: false
+      },
+      axisTicks: {
+        show: false
+      },
+      axisBorder: {
+        show: false
+      }
+    },
+    yaxis: {
+      labels: {
+        show: false
+      }
+    },
+    legend: {
+      show: false
+    },
+    tooltip: {
+      enabled: false
+    }
+  };
+
+  var chart = new ApexCharts(document.querySelector("#chart3"), options);
+  chart.render();
+</script>
+ <!-- end drop graph -->
+    
 
 
 </body>

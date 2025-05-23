@@ -1017,9 +1017,9 @@ class Response
             )
         );
 
-        $context  = stream_context_create($options);
+        $context  = stream_context_create(options: $options);
         $response = file_get_contents($url, false, $context);
-        $data = json_decode($response, true);
+        $data = json_decode($response, associative: true);
 
 
         return $data['data'];

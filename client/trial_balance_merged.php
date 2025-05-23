@@ -37,9 +37,14 @@ if (@$_REQUEST['branch']) {
 // $request_data['bankk'] = @$user[0]['bankId'] ?? '';
 $request_data = array_merge($request_data, $_REQUEST);
 $report_reponse = $ReportService->generateTrialBalance($request_data);
+// var_dump($$_REQUEST['branch']);
+// exit;
+
 $records = @$report_reponse['data'] ?? [];
 
 $sub_report_reponse = $ReportService->generateTrialBalanceSubAccounts($request_data);
+// var_dump($sub_report_reponse);
+// exit;
 $sub_records = @$sub_report_reponse['data'] ?? [];
 
 
@@ -272,11 +277,11 @@ require_once('includes/reports_css.php');
                                             <td> <?= $record['account_name'] ?> </td>
 
                                             <td style="text-align:right;"><a href="report_journal_entries.php?filtered=1&branchId=&transaction_type=&authorized_by_id=&acid=<?= $record['account_id'] ?>&transaction_start_date=&transaction_end_date=" class="text-primary details">
-                                                    <?= number_format(0); ?>
+                                                    <?= $record['balance'] ?>
                                                 </a>
                                             </td>
                                             <td style="text-align:right;"><a href="report_journal_entries.php?filtered=1&branchId=&transaction_type=&authorized_by_id=&acid=<?= $record['account_id'] ?>&transaction_start_date=&transaction_end_date=" class="text-primary ">
-
+                                            <?= number_format(0); ?>
                                                 </a>
                                             </td>
 
@@ -724,7 +729,7 @@ require_once('includes/reports_css.php');
                 let totalAssets = 0; // Counter for total assets
                 let totalLiabilities = 0; // Counter for total liabilities
                 let totalCapital = 0; // Counter for total capital
-                let totalIncomes = 0; // Counter for total incomes
+                let totalIncomes = 0; // Counter for total incomesP
                 let totalExpenses = 0; // Counter for total expenses
                 let totalSuspenses = 0; // Counter for total suspenses
 
@@ -733,7 +738,8 @@ require_once('includes/reports_css.php');
                     var cr_dr = $(this).data('cr_dr');
                     var acc_typ = $(this).data('acc_typ');
                     $.ajax({
-                        url: 'https://app.ucscucbs.net/backend/api/Bank/fetchTrialValues.php?start=<?= @$_REQUEST['transaction_start_date'] ?>&end=<?= @$_REQUEST['transaction_end_date'] ?>&branch=<?= @$_REQUEST['branch'] ?>&bankk=<?= @$_REQUEST['bankk'] ?>',
+                        // url: 'https://app.ucscucbs.net/backend/api/Bank/fetchTrialValues.php?start=<?= @$_REQUEST['transaction_start_date'] ?>&end=<?= @$_REQUEST['transaction_end_date'] ?>&branch=<?= @$_REQUEST['branch'] ?>&bankk=<?= @$_REQUEST['bankk'] ?>',
+                        url: 'http://localhost/ucscudevmain/backend/api/Bank/fetchTrialValues.php?start=<?= @$_REQUEST['transaction_start_date'] ?>&end=<?= @$_REQUEST['transaction_end_date'] ?>&branch=<?= @$_REQUEST['branch'] ?>&bankk=<?= @$_REQUEST['bankk'] ?>',
                         method: 'GET',
                         data: {
                             id: rowId,

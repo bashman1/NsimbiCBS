@@ -48,6 +48,9 @@ if (isset($_POST['submit'])) {
     //     }
     // }
 
+    // var_dump($_POST);
+    // exit;
+
 
     $res = $response->createStaff($_POST['branch'], $_POST['role'], $passport_photo_name, $_POST['position'], $_POST['fname'], $_POST['lname'], $_POST['address'], $_POST['address2'], $_POST['country'], $_POST['district'], $_POST['subcounty'], $_POST['parish'], $_POST['village'], $_POST['phone'], $_POST['other_phone'], $_POST['email'], $_POST['nin'], $_POST['dob'], $_POST['kname'], $_POST['kinphone'], $_POST['kphysicaladdress'], $_POST['knin'], $_POST['relationship'], $_POST['gender'], $_POST['enable_penalty'], $_POST['bid'], $_POST['b_level']);
     if ($res) {

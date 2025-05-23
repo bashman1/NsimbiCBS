@@ -1943,6 +1943,7 @@ class Bank
     }
     public function registerBranch()
     {
+
         $sqlQuery = 'INSERT INTO public."Branch" (name,"serialNumber","bankId","identificationNumber",location,bcode) VALUES
         (:name,:sn,:id,:idno,:loc,:bcode)';
 
@@ -1964,7 +1965,7 @@ class Bank
 
         $stmtn->execute();
         $rown = $stmtn->fetch();
-        if ($rown['auto_chart']) {
+        // if ($rown['auto_chart']) {
 
             $sqlQuery = 'SELECT * FROM public."Account" WHERE auto_gen=1 AND "branchId" IS NULL';
 
@@ -1982,25 +1983,24 @@ class Bank
                 $stmt->bindParam(':branch', $rown['branch_id']);
                 $stmt->bindParam(':name', $row['name']);
                 $stmt->bindParam(':descr', $row['description']);
-                $stmt->bindParam(':sysgen', $row['isSystemGenerated']);
+                $stmt->bindParam(':sysgen', $row['isSystemGenerated'], PDO::PARAM_BOOL);
                 $stmt->bindParam(':lpid', $row['lpid']);
                 $stmt->bindParam(':said', $row['said']);
                 $stmt->bindParam(':fid', $row['feeid']);
-                $stmt->bindParam(':cashacc', $row['is_cash_account']);
+                $stmt->bindValue(':cashacc', $row['is_cash_account'] === 't' ? 1 : 0, PDO::PARAM_INT);
                 $stmt->bindParam(':bacc', $row['bank_account']);
                 $stmt->bindParam(':balance', $row['balance']);
-                $stmt->bindParam(':isssub', $issub);
                 $stmt->bindParam(':mainacc', $row['main_account_id']);
-                $stmt->bindParam(':isinter', $row['is_inter_branch']);
+                $stmt->bindValue(':isinter', $row['is_inter_branch'] === 't' ? 1 : 0, PDO::PARAM_INT);
                 $stmt->bindParam(':accid', $row['acc_id']);
                 $stmt->bindParam(':reserve', $row['reserve_account']);
-                $stmt->bindParam(':ispay', $row['is_payable']);
-                $stmt->bindParam(':isrec', $row['is_receivable']);
-                $stmt->bindParam(':autogen', $row['auto_gen']);
+                $stmt->bindParam(':ispay', $row['is_payable'], PDO::PARAM_BOOL);
+                $stmt->bindValue(':isrec', $row['is_receivable'] === 't' ? 1 : 0, PDO::PARAM_INT);
+                $stmt->bindValue(':autogen', $row['auto_gen'] === 't' ? 1 : 0, PDO::PARAM_INT);
                 $stmt->bindParam(':parentid', $row['parent_id_code']);
                 $stmt->bindParam(':acccode', $row['account_code_used']);
                 $stmt->bindParam(':lastcode', $row['last_code_used']);
-
+ 
                 $stmt->execute();
             }
 
@@ -2059,7 +2059,7 @@ class Bank
             $stmt->bindParam(':isinterbranch', $isinterbranch);
 
             $stmt->execute();
-        }
+        // }
         return true;
     }
 
