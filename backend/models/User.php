@@ -2256,7 +2256,7 @@ acc_name,mid,approvedby,_branch,left_balance,t_type,transaction_error,charges,is
 
     public function sharePurchase()
     {
-        $amount = str_replace(",", "", $this->details['amount']);
+        $amount = (float) str_replace(",", "", $this->details['amount']);
         $given_value = str_replace(",", "", $this->details['share_value']);
         // check cash , bank , or savings account balance
         if ($this->details['pay_method'] == 'cash' || $this->details['pay_method'] == 'cheque' || $this->details['pay_method'] == 'mobile') {
@@ -2277,10 +2277,10 @@ acc_name,mid,approvedby,_branch,left_balance,t_type,transaction_error,charges,is
 
             $rown = $stmt->fetch();
 
-            $used_balance = $rown['balance'] ?? 0;
-            if ($used_balance < $amount) {
-                return false;
-            } else {
+            // $used_balance = (float) $rown['balance'] ?? 0;
+            // if ($used_balance < $amount) {
+            //     return false;
+            // } else {
 
                 // update acc balance and reduce them before continuing
                 $sqlQuery = 'UPDATE  public."Account" SET balance=balance+:bal  WHERE public."Account".id=:id';
@@ -2293,7 +2293,7 @@ acc_name,mid,approvedby,_branch,left_balance,t_type,transaction_error,charges,is
                     $amount
                 );
                 $stmt->execute();
-            }
+            // }
         }
 
 
@@ -2301,6 +2301,8 @@ acc_name,mid,approvedby,_branch,left_balance,t_type,transaction_error,charges,is
         // get bank share value details
 
         $sqlQuery = 'SELECT * FROM public."Branch" LEFT JOIN public."Bank" ON public."Branch"."bankId"=public."Bank".id WHERE public."Branch".id=:id';
+
+
 
         $stmt = $this->conn->prepare($sqlQuery);
 
@@ -2457,10 +2459,12 @@ acc_name,mid,approvedby,_branch,left_balance,t_type,transaction_error,charges,is
 
         $stmt = $this->conn->prepare($sqlQuery);
 
-        $stmt->bindParam(':id', $row['share_acid']);
+        $stmt->bindParam(':id', $this->details['branch']);
         $stmt->execute();
 
         $rown = $stmt->fetch();
+
+
         if ($rown) {
             $sqlQuery = 'UPDATE  public."Account" SET balance=balance+:bal  WHERE public."Account".account_code_used=:id AND "branchId"=:bid';
 

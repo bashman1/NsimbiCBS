@@ -21,11 +21,11 @@ if (isset($_POST['submit'])) {
     $res = $response->updateShareValue($amount, $user[0]['bankId'], $_POST['account_id']);
     if ($res) {
         setSessionMessage(true, 'Share Value Updated Successfully!');
-        header('location:shares_settings');
+        header('location:shares_settings.php');
         exit;
     } else {
         setSessionMessage(false, 'Share Value Update failed!');
-        header('location:shares_settings');
+        header('location:shares_settings.php');
         exit;
     }
 }

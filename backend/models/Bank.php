@@ -4072,7 +4072,8 @@ class Bank
             $stmt->execute();
             $rown = $stmt->fetch();
 
-            $sqlQuery = 'UPDATE public."Account" SET said=:fid WHERE account_code_used=:id';
+            // $sqlQuery = 'UPDATE public."Account" SET said=:fid WHERE account_code_used=:id';
+            $sqlQuery = 'UPDATE public."Account" SET said=:fid WHERE id=:id';
 
             $stmt = $this->conn->prepare($sqlQuery);
 
@@ -6539,6 +6540,7 @@ VALUES (:typee,:bid,:nname,:descr,:isgen,:said )';
     public function createLoanApplication()
     {
 
+
         $sqlQuery = 'SELECT * FROM public."loantypes" WHERE public."loantypes".type_id=:id';
         $stmt = $this->conn->prepare($sqlQuery);
         $stmt->bindParam(':id', $this->bank);
@@ -6563,8 +6565,15 @@ VALUES (:typee,:bid,:nname,:descr,:isgen,:said )';
 
         $stmt = $this->conn->prepare($sqlQuery);
 
+
+    
+
+
         $stmt->bindParam(':id', $this->bank);
         $stmt->execute();
+
+  
+
         foreach ($stmt as $rown) {
             if ($fees != '') {
                 $fees = $fees . ',' . $rown['fee_id'];
@@ -6578,6 +6587,46 @@ VALUES (:typee,:bid,:nname,:descr,:isgen,:said )';
         } else if ($row['interestmethod'] == 'DECLINING_BALANCE') {
             $methodd = 2;
         }
+
+        //   $cbb = 0;
+        // $stt = 0;
+                        //   var_dump($row);
+//                         var_dump(
+//     'penalty_grace_type => ' . $row['gracetype'],
+//     'num_grace_periods => ' . $row['numberofgraceperioddays'],
+//     'penalty_based_on => ' . $row['penalty_based_on'],
+//     'penalty_fixed_amount => ' . $row['penaltyfixedamount'],
+//     'penalty_interest_rate => ' . $row['penaltyinterestrate'],
+//     'charge_penalty => ' . var_export($row['penalty'], true),
+
+//     'lpid => ' . $this->bank,
+//     'principal => ' . $this->createdAt,
+//     'ra => ' . $this->createdAt,
+//     'bid => ' . $this->serialNumber,
+//     'cb => ' . $cbb,
+//     'lt => ' . $row['type_id'],
+//     'stat => ' . $stt,
+//     'fees_to_charge => ' . $fees,
+
+//     'applydate => ' . $this->branch,
+//     'disbursedate => ' . $this->branch,
+//     'acid => ' . $this->name,
+//     'loff => ' . $this->pv,
+//     'duration => ' . $this->updatedAt,
+
+//     'rcid => ' . $cycleid,
+//     'startdate => ' . $this->description,
+
+//     'imid => ' . $methodd,
+
+//     'rate => ' . $row['interestrate'],
+//     'notes => ' . $this->deletedAt,
+//     'aa => ' . $this->createdAt,
+//     'ald => ' . $this->updatedAt
+// );
+
+        // exit;
+
 
         $sqlQuery = 'INSERT INTO public."loan" 
         (
@@ -6597,7 +6646,7 @@ VALUES (:typee,:bid,:nname,:descr,:isgen,:said )';
         $stmt->bindParam(':penalty_based_on', $row['penalty_based_on']);
         $stmt->bindParam(':penalty_fixed_amount', $row['penaltyfixedamount']);
         $stmt->bindParam(':penalty_interest_rate', $row['penaltyinterestrate']);
-        $stmt->bindParam(':charge_penalty', $row['penalty']);
+        $stmt->bindParam(':charge_penalty', false);
 
         $stmt->bindParam(':lpid', $this->bank);
         $stmt->bindParam(':principal', $this->createdAt);
@@ -6626,6 +6675,8 @@ VALUES (:typee,:bid,:nname,:descr,:isgen,:said )';
         $stmt->bindParam(':ald', $this->updatedAt);
 
         $stmt->execute();
+
+
 
         $last_id = $this->conn->lastInsertId();
 

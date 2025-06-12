@@ -16,9 +16,12 @@
 
     $item->details = $request['data'];
     
-   
+    $results =$item->sharePurchase();
+
+    // var_dump($results);
+    // exit;
     
-    if($item->sharePurchase())
+    if($results)
     {
         $userArr = array();
         $userArr["data"] = array();

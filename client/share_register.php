@@ -153,7 +153,7 @@ $branches = $response->getBankBranches($user[0]['bankId']);
                         <div class="card">
                             <div class="card-header">
                                 <h4 class="card-title">
-                                    <a href="share_search_client" class="btn btn-primary light btn-xs mb-1">Purchase Shares</a>
+                                    <a href="share_search_client.php" class="btn btn-primary light btn-xs mb-1">Purchase Shares</a>
                                 </h4>
 
 

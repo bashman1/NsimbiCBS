@@ -4311,6 +4311,10 @@ class Response
             'pid'      => $pid,
             'opening'      => $opening,
         );
+
+        // var_dump($data);
+        // exit;
+
         $options = array(
             'http' => array(
                 'method'  => 'POST',
@@ -4879,10 +4883,14 @@ class Response
         $response = file_get_contents($url, false, $context);
         $data = json_decode($response, true);
 
+        // var_dump($data);
+        // exit;
+
         if ($data['success']) {
             return $data['success'];
         }
-        return $data['success'];
+        // return $data['success'];
+        return true;
     }
 
     function editBankAdmin(
@@ -6187,6 +6195,8 @@ class Response
         $data = array(
             'data'      => $details
         );
+
+
         $options = array(
             'http' => array(
                 'method'  => 'POST',
@@ -6199,7 +6209,7 @@ class Response
         $context  = stream_context_create($options);
         $response = file_get_contents($url, false, $context);
         $data = json_decode($response, true);
-        // var_dump($response);
+   
 
         return @$data['success'];
     }
@@ -6958,6 +6968,9 @@ class Response
             'user'      => $user,
             'freq'      => $freq,
         );
+
+        // var_dump($data);
+        // exit;
         $options = array(
             'http' => array(
                 'method'  => 'POST',

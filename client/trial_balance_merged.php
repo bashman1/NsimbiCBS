@@ -739,7 +739,8 @@ require_once('includes/reports_css.php');
                     var acc_typ = $(this).data('acc_typ');
                     $.ajax({
                         // url: 'https://app.ucscucbs.net/backend/api/Bank/fetchTrialValues.php?start=<?= @$_REQUEST['transaction_start_date'] ?>&end=<?= @$_REQUEST['transaction_end_date'] ?>&branch=<?= @$_REQUEST['branch'] ?>&bankk=<?= @$_REQUEST['bankk'] ?>',
-                        url: 'http://localhost/ucscudevmain/backend/api/Bank/fetchTrialValues.php?start=<?= @$_REQUEST['transaction_start_date'] ?>&end=<?= @$_REQUEST['transaction_end_date'] ?>&branch=<?= @$_REQUEST['branch'] ?>&bankk=<?= @$_REQUEST['bankk'] ?>',
+                        // url: 'http://localhost/ucscudevmain/backend/api/Bank/fetchTrialValues.php?start=<?= @$_REQUEST['transaction_start_date'] ?>&end=<?= @$_REQUEST['transaction_end_date'] ?>&branch=<?= @$_REQUEST['branch'] ?>&bankk=<?= @$_REQUEST['bankk'] ?>',
+                        url: '<?= BACKEND_BASE_URL ?>Bank/fetchTrialValues.php?start=<?= @$_REQUEST['transaction_start_date'] ?>&end=<?= @$_REQUEST['transaction_end_date'] ?>&branch=<?= @$_REQUEST['branch'] ?>&bankk=<?= @$_REQUEST['bankk'] ?>',
                         method: 'GET',
                         data: {
                             id: rowId,

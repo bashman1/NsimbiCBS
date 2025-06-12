@@ -22,6 +22,7 @@ $item->id = $data->bank;
 $item->createdAt = $data->disburse;
 $item->updatedAt = $data->withdraw;
 $item->bcode = $data->opening;
+$item->acid = $data->acid;
 
 
 $item->pv = $data->pform;

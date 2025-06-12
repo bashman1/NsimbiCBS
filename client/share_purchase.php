@@ -242,7 +242,7 @@ $share_details = $response->getBankShareValue($user[0]['bankId'], $user[0]['bran
 
                                     <div class="col-lg-6 align-self-center">
 
-                                        <div class="card">
+                                        <!-- <div class="card">
                                             <div class="card-body">
                                                 <div class="text-center">
                                                     <div class="met-profile-main-pic">
@@ -265,12 +265,12 @@ $share_details = $response->getBankShareValue($user[0]['bankId'], $user[0]['bran
                                                             <li><b><?= $member['shares'] ?> Shares | Share Amount: <?= number_format($member['shareamount']) ?> </li><br />
                                                         </ul>
                                                     </div>
-                                                    <a href="<?= 'client_profile_page.php?id=' . $_GET['t']; ?>" class="btn btn-sm btn-primary load_supplement_ajax">View
+                                                    <a href="<?= 'client_profile_page.php?id=' . ($_GET['t'] ?? ''); ?>" class="btn btn-sm btn-primary load_supplement_ajax">View
                                                         Profile</a>
                                                 </div>
                                             </div>
-                                            <!--end card-body-->
-                                        </div>
+                                        
+                                        </div> -->
 
 
                                     </div>

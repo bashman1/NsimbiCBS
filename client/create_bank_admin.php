@@ -42,6 +42,9 @@ if (isset($_POST['submit'])) {
 
 
     $res = $response->addBankAdmin($_POST['bank'], $passport_photo_name, $_POST['position'], $_POST['fname'], $_POST['lname'], $_POST['address'], $_POST['address2'], $_POST['country'], $_POST['district'], $_POST['subcounty'], $_POST['parish'], $_POST['village'], $_POST['phone'], $_POST['other_phone'], $_POST['email'], $_POST['nin'], $_POST['dob'], $_POST['kname'], $_POST['kinphone'], $_POST['kphysicaladdress'], $_POST['knin'], $_POST['relationship'], $_POST['gender']);
+    // var_dump($res);
+    // exit;
+
     if ($res) {
         setSessionMessage(true, 'Institution Admin Created Successfully! They should check their Email Addresses to finish  setting up their accounts.');
         header('location:all_bank_admins.php');
@@ -243,7 +246,7 @@ if (isset($_POST['submit'])) {
                                                     <div class="col-lg-6 mb-2">
                                                         <div class="mb-3">
                                                             <label class="text-label form-label">NIN</label>
-                                                            <input type="text" name="nin" class="form-control" placeholder="" minlength="14" maxlength="14">
+                                                            <input type="text" name="nin" class="form-control" placeholder="" minlength="1" maxlength="14">
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-6 mb-2">

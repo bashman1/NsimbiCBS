@@ -28,7 +28,7 @@ if (isset($_POST['submit'])) {
     // exit;
     if ($res['success']) {
         setSessionMessage(true, 'Role Created Successfully');
-        Redirect('roles');
+        Redirect('roles.php');
     } else {
         setSessionMessage(false, 'Something went wrong! Check the Client\'s table to confirm if all the client\'s were created right.');
         RedirectCurrent();
